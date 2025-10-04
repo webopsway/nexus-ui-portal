@@ -23,17 +23,9 @@ interface SecurityAlert {
   description: string;
 }
 
-const recentTickets: RecentTicket[] = [
-  { id: "TKT-1234", type: "Incident", status: "Ouvert", priority: "Haute", title: "Serveur web inaccessible", updated: "Il y a 5 min" },
-  { id: "TKT-1235", type: "Demande", status: "En cours", priority: "Moyenne", title: "Ajout utilisateur AD", updated: "Il y a 15 min" },
-  { id: "TKT-1236", type: "Incident", status: "Résolu", priority: "Critique", title: "Base de données corrompue", updated: "Il y a 1h" },
-];
+const recentTickets: RecentTicket[] = [];
 
-const securityAlerts: SecurityAlert[] = [
-  { id: "1", severity: "Critique", cve: "CVE-2024-1234", asset: "web-app-01", description: "Vulnérabilité XSS détectée" },
-  { id: "2", severity: "Élevée", cve: "CVE-2024-5678", asset: "api-gateway", description: "Injection SQL possible" },
-  { id: "3", severity: "Moyenne", cve: "CVE-2024-9101", asset: "mail-server", description: "Dépendance obsolète" },
-];
+const securityAlerts: SecurityAlert[] = [];
 
 const ticketColumns: Column<RecentTicket>[] = [
   { key: "id", label: "ID", sortable: true },
@@ -88,38 +80,33 @@ export default function Dashboard() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <StatCard
             title="Tickets ouverts"
-            value={24}
+            value={0}
             icon={Ticket}
-            trend={{ value: 12, isPositive: false }}
           />
           <StatCard
             title="Assets patchés"
-            value="87%"
+            value="0%"
             icon={PackageCheck}
-            trend={{ value: 5, isPositive: true }}
           />
           <StatCard
             title="Backups OK"
-            value="98.5%"
+            value="0%"
             icon={HardDrive}
-            trend={{ value: 2, isPositive: true }}
           />
           <StatCard
             title="Vulnérabilités critiques"
-            value={7}
+            value={0}
             icon={AlertTriangle}
           />
           <StatCard
             title="Services disponibles"
-            value="99.9%"
+            value="0%"
             icon={CheckCircle2}
-            trend={{ value: 0.1, isPositive: true }}
           />
           <StatCard
             title="Alertes sécurité"
-            value={15}
+            value={0}
             icon={Shield}
-            trend={{ value: 8, isPositive: false }}
           />
         </div>
 

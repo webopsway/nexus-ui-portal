@@ -16,17 +16,9 @@ import { useState } from "react";
 import { useTenant } from "@/contexts/TenantContext";
 import { cn } from "@/lib/utils";
 
-const mockOrganizations = [
-  { id: "org-1", name: "Acme Corp" },
-  { id: "org-2", name: "TechStart Inc" },
-  { id: "org-3", name: "Global Services" },
-];
+const mockOrganizations: { id: string; name: string }[] = [];
 
-const mockTeams = [
-  { id: "team-1", name: "Production" },
-  { id: "team-2", name: "Développement" },
-  { id: "team-3", name: "Support" },
-];
+const mockTeams: { id: string; name: string }[] = [];
 
 export function TenantSelector() {
   const { organizationId, organizationName, teamId, teamName, setOrganization, setTeam } = useTenant();

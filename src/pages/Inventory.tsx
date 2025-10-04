@@ -15,13 +15,7 @@ interface Asset {
   tags: string[];
 }
 
-const assets: Asset[] = [
-  { id: "1", name: "web-server-01", provider: "AWS", type: "EC2", region: "eu-west-1", status: "Running", tags: ["production", "web"] },
-  { id: "2", name: "db-prod-01", provider: "AWS", type: "RDS", region: "eu-west-1", status: "Running", tags: ["production", "database"] },
-  { id: "3", name: "app-staging", provider: "Azure", type: "VM", region: "westeurope", status: "Stopped", tags: ["staging", "app"] },
-  { id: "4", name: "lb-prod", provider: "AWS", type: "ALB", region: "eu-west-1", status: "Running", tags: ["production", "loadbalancer"] },
-  { id: "5", name: "cache-redis", provider: "AWS", type: "ElastiCache", region: "eu-west-1", status: "Running", tags: ["production", "cache"] },
-];
+const assets: Asset[] = [];
 
 const columns: Column<Asset>[] = [
   { key: "name", label: "Nom", sortable: true },
@@ -77,7 +71,7 @@ export default function Inventory() {
           </div>
           <div className="text-right">
             <p className="text-sm text-muted-foreground">Dernière synchronisation</p>
-            <p className="font-medium">Il y a 2 heures</p>
+            <p className="font-medium">Jamais</p>
           </div>
         </div>
 

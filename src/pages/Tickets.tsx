@@ -17,13 +17,7 @@ interface Ticket {
   updated: string;
 }
 
-const tickets: Ticket[] = [
-  { id: "TKT-1234", type: "Incident", status: "Ouvert", priority: "Haute", target: "web-server-01", title: "Serveur web inaccessible", assignee: "Jean Dupont", updated: "2024-01-15 10:30" },
-  { id: "TKT-1235", type: "Demande", status: "En cours", priority: "Moyenne", target: "AD", title: "Ajout utilisateur", assignee: "Marie Martin", updated: "2024-01-15 09:15" },
-  { id: "TKT-1236", type: "Incident", status: "Résolu", priority: "Critique", target: "db-prod-01", title: "Base de données corrompue", assignee: "Pierre Leroy", updated: "2024-01-14 16:45" },
-  { id: "TKT-1237", type: "Demande", status: "Ouvert", priority: "Basse", target: "mail-app", title: "Configuration boîte mail", assignee: "Sophie Bernard", updated: "2024-01-14 14:20" },
-  { id: "TKT-1238", type: "Incident", status: "En cours", priority: "Haute", target: "firewall-01", title: "Règle firewall bloquante", assignee: "Jean Dupont", updated: "2024-01-14 11:00" },
-];
+const tickets: Ticket[] = [];
 
 const columns: Column<Ticket>[] = [
   { key: "id", label: "ID", sortable: true },

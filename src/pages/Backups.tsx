@@ -25,18 +25,9 @@ interface BackupExecution {
   status: string;
 }
 
-const backupJobs: BackupJob[] = [
-  { id: "1", name: "DB Production Daily", target: "db-prod-01", schedule: "Tous les jours 02:00", retention: "30 jours", lastRun: "2024-01-15 02:00", status: "Succès" },
-  { id: "2", name: "Web Server Files", target: "web-server-01", schedule: "Tous les jours 03:00", retention: "14 jours", lastRun: "2024-01-15 03:00", status: "Succès" },
-  { id: "3", name: "Config Backup", target: "Multiple", schedule: "Toutes les semaines", retention: "90 jours", lastRun: "2024-01-14 01:00", status: "Échec" },
-];
+const backupJobs: BackupJob[] = [];
 
-const backupExecutions: BackupExecution[] = [
-  { id: "1", job: "DB Production Daily", started: "2024-01-15 02:00", duration: "12 min", size: "4.2 GB", status: "Succès" },
-  { id: "2", job: "Web Server Files", started: "2024-01-15 03:00", duration: "8 min", size: "1.8 GB", status: "Succès" },
-  { id: "3", job: "Config Backup", started: "2024-01-14 01:00", duration: "N/A", size: "N/A", status: "Échec" },
-  { id: "4", job: "DB Production Daily", started: "2024-01-14 02:00", duration: "11 min", size: "4.1 GB", status: "Succès" },
-];
+const backupExecutions: BackupExecution[] = [];
 
 const jobColumns: Column<BackupJob>[] = [
   { key: "name", label: "Nom", sortable: true },

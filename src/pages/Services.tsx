@@ -16,48 +16,7 @@ interface Service {
   maintenance: string;
 }
 
-const services: Service[] = [
-  {
-    id: "1",
-    name: "Web Application",
-    description: "Application web principale pour les clients",
-    sla: "99.9%",
-    rto: "1 heure",
-    rpo: "15 minutes",
-    status: "Opérationnel",
-    maintenance: "Dimanche 02:00-04:00",
-  },
-  {
-    id: "2",
-    name: "API Gateway",
-    description: "Passerelle API pour les intégrations",
-    sla: "99.95%",
-    rto: "30 minutes",
-    rpo: "5 minutes",
-    status: "Opérationnel",
-    maintenance: "Samedi 23:00-01:00",
-  },
-  {
-    id: "3",
-    name: "Database Services",
-    description: "Services de base de données PostgreSQL et Redis",
-    sla: "99.99%",
-    rto: "15 minutes",
-    rpo: "1 minute",
-    status: "Maintenance",
-    maintenance: "En cours",
-  },
-  {
-    id: "4",
-    name: "Email Service",
-    description: "Service de messagerie interne et externe",
-    sla: "99.5%",
-    rto: "2 heures",
-    rpo: "30 minutes",
-    status: "Opérationnel",
-    maintenance: "Lundi 01:00-02:00",
-  },
-];
+const services: Service[] = [];
 
 export default function Services() {
   return (
@@ -74,47 +33,53 @@ export default function Services() {
           }
         />
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <Card key={service.id} className="hover:shadow-md transition-shadow">
-              <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-3">
-                <div className="space-y-1">
-                  <CardTitle className="text-lg font-semibold">{service.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
-                </div>
-                <Tag variant={service.status === "Opérationnel" ? "success" : "warning"}>
-                  {service.status}
-                </Tag>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div>
-                    <p className="text-muted-foreground mb-1">SLA</p>
-                    <p className="font-semibold">{service.sla}</p>
+        {services.length === 0 ? (
+          <div className="py-12">
+            <p className="text-center text-muted-foreground">Aucun service disponible</p>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2">
+            {services.map((service) => (
+              <Card key={service.id} className="hover:shadow-md transition-shadow">
+                <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-3">
+                  <div className="space-y-1">
+                    <CardTitle className="text-lg font-semibold">{service.name}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{service.description}</p>
                   </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1">RTO</p>
-                    <p className="font-semibold">{service.rto}</p>
+                  <Tag variant={service.status === "Opérationnel" ? "success" : "warning"}>
+                    {service.status}
+                  </Tag>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="grid grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <p className="text-muted-foreground mb-1">SLA</p>
+                      <p className="font-semibold">{service.sla}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground mb-1">RTO</p>
+                      <p className="font-semibold">{service.rto}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground mb-1">RPO</p>
+                      <p className="font-semibold">{service.rpo}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1">RPO</p>
-                    <p className="font-semibold">{service.rpo}</p>
+                  
+                  <div className="pt-3 border-t border-border">
+                    <p className="text-xs text-muted-foreground mb-1">Fenêtre de maintenance</p>
+                    <p className="text-sm font-medium">{service.maintenance}</p>
                   </div>
-                </div>
-                
-                <div className="pt-3 border-t border-border">
-                  <p className="text-xs text-muted-foreground mb-1">Fenêtre de maintenance</p>
-                  <p className="text-sm font-medium">{service.maintenance}</p>
-                </div>
-                
-                <Button variant="outline" size="sm" className="w-full gap-2">
-                  Voir détails
-                  <ExternalLink className="h-3 w-3" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  
+                  <Button variant="outline" size="sm" className="w-full gap-2">
+                    Voir détails
+                    <ExternalLink className="h-3 w-3" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </AppShell>
   );

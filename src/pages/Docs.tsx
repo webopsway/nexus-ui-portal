@@ -15,13 +15,7 @@ interface Document {
   status: string;
 }
 
-const documents: Document[] = [
-  { id: "1", title: "Guide d'installation PostgreSQL", category: "Infrastructure", author: "Jean Dupont", updated: "2024-01-15", status: "Publié" },
-  { id: "2", title: "Procédure de restauration backup", category: "Procédures", author: "Marie Martin", updated: "2024-01-14", status: "Publié" },
-  { id: "3", title: "Architecture réseau DMZ", category: "Architecture", author: "Pierre Leroy", updated: "2024-01-13", status: "Brouillon" },
-  { id: "4", title: "Gestion des certificats SSL", category: "Sécurité", author: "Sophie Bernard", updated: "2024-01-12", status: "Publié" },
-  { id: "5", title: "Plan de reprise d'activité", category: "Procédures", author: "Jean Dupont", updated: "2024-01-10", status: "En révision" },
-];
+const documents: Document[] = [];
 
 const columns: Column<Document>[] = [
   {
