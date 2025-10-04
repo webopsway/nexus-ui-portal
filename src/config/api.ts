@@ -3,7 +3,7 @@
  * These values are public and exposed to the client-side bundle
  */
 export const API_CONFIG = {
-  baseUrl: 'https://api.example.com',
+  baseUrl: 'https://api-ocm-back.opsway.fr',
   defaultOrgId: '11111111-1111-1111-1111-111111111111',
   defaultTeamId: 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1',
 } as const;
